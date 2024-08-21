@@ -15,6 +15,7 @@ use Modules\Booking\Http\Controllers\BillingInformationController;
 use Modules\Booking\Http\Controllers\BookingRequestController;
 use Modules\ThemeBusiness\Http\Controllers\ContactsController;
 use Modules\ThemeBusiness\Http\Controllers\FrontPagesController;
+use Modules\ThemeBusiness\Http\Controllers\BlogPagesController;
 use Modules\ThemeBusiness\Http\Controllers\ServicePagesController;
 
 Route::group(['prefix' => '/', 'as' => 'demo.business.'], function () { // @todo - Change prefix route name 'as' => 'demo.business.'
@@ -27,6 +28,7 @@ Route::group(['prefix' => '/', 'as' => 'demo.business.'], function () { // @todo
 
     Route::get('/about', [FrontPagesController::class, 'about'])->name('about');
     Route::get('/blog', [FrontPagesController::class, 'blog'])->name('blog');
+    Route::get('/blog/{slug}', [FrontPagesController::class, 'blogShow'])->name('blog.show');
     Route::get('/price', [FrontPagesController::class, 'price'])->name('price');
     Route::get('/portfolio', [FrontPagesController::class, 'portfolio'])->name('portfolio');
     Route::get('/contact', [ContactsController::class, 'index'])->name('contact');

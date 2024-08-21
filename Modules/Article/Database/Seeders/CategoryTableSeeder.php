@@ -14,22 +14,55 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        $category = new Category();
-        $category->name = "Life Style";
-        $category->slug = "life-style";
-        $category->parent_category_id = null;
-        $category->save();
 
-        $category2 = new Category();
-        $category2->name = "Fashion";
-        $category2->slug = "fashion";
-        $category2->parent_category_id = $category->id;
-        $category2->save();
+        $categories = [
+            [
+                'id' => 1,
+                'name' => "Networking",
+                'slug' => "networking",
+                'parent_category_id' => null
+            ],
+            [
+                'id' => 2,
+                'name' => "On-site Systems",
+                'slug' => "on-site-systems",
+                'parent_category_id' => null
+            ],
+            [
+                'id' => 3,
+                'name' => "Management",
+                'slug' => "management",
+                'parent_category_id' => null
+            ],
+            [
+                'id' => 4,
+                'name' => "Software as a Service",
+                'slug' => "software-as-a-service",
+                'parent_category_id' => null
+            ],
+            [
+                'id' => 5,
+                'name' => "Monitoring",
+                'slug' => "monitoring",
+                'parent_category_id' => null
+            ],
+            [
+                'id' => 6,
+                'name' => "Computer Asset Management",
+                'slug' => "computer-asset-management",
+            ],
+            [
+                'id' => 7,
+                'name' => "Other Services",
+                'slug' => "other-services",
+            ]
+        ];
 
-        $category3 = new Category();
-        $category3->name = "Earning";
-        $category3->slug = "earning";
-        $category3->parent_category_id = null;
-        $category3->save();
+        foreach ($categories as $category) {
+            Category::updateOrCreate(
+                ['id' => $category['id']],
+                $category
+            );
+        }
     }
 }

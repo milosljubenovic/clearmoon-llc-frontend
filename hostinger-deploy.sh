@@ -16,3 +16,9 @@ php artisan storage:link
 ln -s public public_html
 
 ls -la
+
+# clear the cache
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
